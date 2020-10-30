@@ -8,7 +8,7 @@ Users
     - password_digest
 
 
-Venues 
+Venues      Join table- joining users and tickets 
     - belongs_to :user
     - belongs_to :ticket
     - name 
