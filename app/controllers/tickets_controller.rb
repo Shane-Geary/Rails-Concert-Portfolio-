@@ -18,6 +18,19 @@ class TicketsController < ApplicationController
         end
     end
 
+    def edit 
+        @ticket = Ticket.find_by(id: params[:id])
+    end
+
+    def update 
+        @ticket = Ticket.find_by(id: params[:id])
+        if @ticket.update(ticket_params)
+            redirect_to ticket_path(@ticket)
+        else
+            render :edit
+        end
+    end
+
     private 
 
     def ticket_params 

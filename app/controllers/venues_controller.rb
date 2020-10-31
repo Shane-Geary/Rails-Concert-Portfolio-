@@ -1,4 +1,5 @@
 class VenuesController < ApplicationController
+    before_action :not_logged_in
 
     def index 
         @venues = Venue.all 
@@ -32,5 +33,9 @@ class VenuesController < ApplicationController
         else
             render :edit
         end
+    end
+
+    def venue_params 
+        params.require(:venue).permit(:name) 
     end
 end

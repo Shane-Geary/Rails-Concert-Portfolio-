@@ -9,8 +9,10 @@ Rails.application.routes.draw do
 
   delete '/logout' => 'sessions#destroy' 
 
-  resources :venues
   resources :users
-  resources :tickets
+  resources :tickets do 
+    resources :venues 
+  end
+  resources :venues
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
