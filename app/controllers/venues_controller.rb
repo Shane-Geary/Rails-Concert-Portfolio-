@@ -2,7 +2,11 @@ class VenuesController < ApplicationController
     before_action :not_logged_in
 
     def index 
+        if params[:ticket_id] && @ticket = Ticket.find_by_id(params[:ticket_id])
+            @venues = @ticket.venues 
+        else
         @venues = Venue.all 
+        end 
     end
 
     def new 
@@ -36,6 +40,6 @@ class VenuesController < ApplicationController
     end
 
     def venue_params 
-        params.require(:venue).permit(:name) 
+        params.require(:venue).permit(:name, :ticket_id) 
     end
 end

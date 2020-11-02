@@ -19,7 +19,7 @@
   <% if logged_in? %>
     <%= link_to "Add a new Ticket", new_ticket_path %> -
     <%= link_to "See all Tickets", tickets_path %> -
-    <%= link_to "Add a Venue", new_venue_path %> -
+    <%= link_to "Add a Venue", new_ticket_venue_path(:ticket_id) %> -
     <%= link_to "logout", logout_path, method: "delete" %>
     <% else %>
     <%= link_to "Signup", signup_path %> -

@@ -2,7 +2,9 @@ class TicketsController < ApplicationController
     before_action :not_logged_in
 
     def index 
+        # if current_user.ticket_id = params[:user_id] 
         @tickets = Ticket.all 
+        # end 
     end
 
     def new 
@@ -29,6 +31,10 @@ class TicketsController < ApplicationController
         else
             render :edit
         end
+    end
+
+    def destroy 
+        @ticket.delete 
     end
 
     private 
