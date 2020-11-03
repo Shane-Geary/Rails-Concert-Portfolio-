@@ -1,7 +1,28 @@
+<% if @venue.ticket %>
+<h1>Add a Venue for <%= @venue.ticket.name %></h1>
+<% else %>
 <h1>Add a Venue</h1>
+<% end %>
 
-<%= form_for(@venue) do |f| %> 
+<% if @venue.errors.any? %>
+    <div id="error_explanation">
+        <h2><%= pluralize(@venue.erros.count, "error") %> prohibited this venue from being saved</h2>
+
+        <ul>
+        <% @venue.error.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+        </ul>
+    </div> 
+<% end %>
+
+<%= form_for([@venue.ticket, @venue]) do |f| %> 
+    <% if !@venue.ticket %> 
+    <%= f.label :ticket %>
     <%= f.collection_select :ticket_id, Ticket.all, :id, :name %>
+    <% else %>
+        <%= f.hidden_field :ticket_id %>
+    <% end %>
 
     <%= f.label :name %> 
     <%= f.text_field :name %>

@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2020_10_27_194440) do
 
   create_table "tickets", force: :cascade do |t|
     t.string "name"
-    t.integer "date"
+    t.string "date"
     t.string "artist"
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false

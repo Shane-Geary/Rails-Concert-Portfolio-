@@ -5,12 +5,18 @@ class VenuesController < ApplicationController
         if params[:ticket_id] && @ticket = Ticket.find_by_id(params[:ticket_id])
             @venues = @ticket.venues 
         else
+            @error = "That Ticket doesn't exist" if params[:ticket_id]
         @venues = Venue.all 
         end 
     end
 
     def new 
+        if params[:ticket_id] && @ticket = Ticket.find_by_id(params[:ticket_id]) 
+            @venue = @ticket.venues.build 
+        else
+            @error = "Choose a Ticket to add the Venue to" if params[:ticket_id]
         @venue = Venue.new 
+        end 
     end
 
     def create 
@@ -33,10 +39,15 @@ class VenuesController < ApplicationController
     def update 
         @venue = Venue.find_by(id: params[:id])
         if @venue.update(venue_params)
-            redirect_to venue_path(@venue)
+            redirect_to venues_path
         else
             render :edit
         end
+    end
+
+    def destroy 
+        Venue.delete(params[:id]) 
+        redirect_to venues_path 
     end
 
     def venue_params 

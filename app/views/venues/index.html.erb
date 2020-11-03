@@ -1,1 +1,4 @@
 <h1>All Venues</h1>
+<%= @venues.each do |v| %>
+    <li><%= link_to v.name, edit_venue_path(v), method: "get" %></li>
+<% end %>

@@ -27,14 +27,15 @@ class TicketsController < ApplicationController
     def update 
         @ticket = Ticket.find_by(id: params[:id])
         if @ticket.update(ticket_params)
-            redirect_to ticket_path(@ticket)
+            redirect_to tickets_path
         else
             render :edit
         end
     end
 
     def destroy 
-        @ticket.delete 
+        Ticket.delete(params[:id]) 
+        redirect_to tickets_path  
     end
 
     private 

@@ -2,7 +2,7 @@ class CreateTickets < ActiveRecord::Migration[6.0]
   def change
     create_table :tickets do |t|
       t.string :name
-      t.integer :date
+      t.string :date 
       t.string :artist
       t.belongs_to :user, null: false, foreign_key: true
 
