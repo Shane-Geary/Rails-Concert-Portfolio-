@@ -1,8 +1,9 @@
+<h2><%= @venue.ticket.name %></h2>
 <%= form_for(@venue) do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>
 
-    <%= f.submit "Submit" %> 
+    <%= f.submit "Submit Venue" %> 
 <% end %>
 
 <p><h4><%= link_to "Delete Venue", venue_path, method: "delete" %></h4></p>

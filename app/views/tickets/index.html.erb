@@ -2,11 +2,7 @@
 <% @tickets.each do |t| %>
     <p>-<%= link_to t.name, edit_ticket_path(t), method: "get" %> -
     <%= t.date %> -
-    <%= t.artist %>| Venue: </p> 
+    <%= t.artist %> | Venue: <%= @tickets.venue.name %></p> 
 <% end %>
 
-<footer><h3>Here you can see the Venues where the Tickets you own have taken place! If you haven't already,
-click the "Add a Venue" button to add the Venues to your Tickets.</h3>
-<%# <% @tickets.venue.each do |v| %> 
-    <%# <li><%= link_to v.venue.name, ticket_venue_path(@ticket, v): <%= v.ticket.name</li>  %>
-<%# <% end %>  </footer>
+
