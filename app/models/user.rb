@@ -3,6 +3,6 @@ class User < ApplicationRecord
 
     has_many :tickets 
     has_many :venues 
-    has_many :venue_tickets, through: :venues,
-    source: :ticket 
+    has_many :ticket_venues, through: :tickets, 
+    source: :venue 
 end

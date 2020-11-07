@@ -19,15 +19,16 @@
     <%= yield %>
   </body>
   <footer>
-  <% if logged_in? %>
-    <%= link_to "Add a new Ticket", new_ticket_path %> -
-    <%= link_to "See all Tickets", tickets_path %> -
-    <%= link_to "Add a Venue", new_ticket_venue_path(:ticket_id) %> -
-    <%= link_to "See all Venues", ticket_venues_path(:ticket_id) %> -
+  <h3><% if logged_in? %>
+    <%= link_to "Add a new Ticket", new_venue_ticket_path(:venue_id) %> -
+    <%= link_to "See all Tickets", venue_tickets_path(:venue_id) %> - 
+    <%= link_to "Add a Venue", new_venue_path %> -
+    <%= link_to "See all Venues", venues_path %> -
     <%= link_to "logout", logout_path, method: "delete" %>
     <% else %>
     <%= link_to "Signup", signup_path %> -
-    <%= link_to "Login", login_path %>
-    <% end %>
+    <%= link_to "Login", login_path %> -
+    <%= link_to "Login with Google", '/auth/google_oauth2' %>
+    <% end %></h3>
   </footer> 
 </html>

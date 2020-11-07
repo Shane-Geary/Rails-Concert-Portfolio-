@@ -1,9 +1,13 @@
-<h2><%= @venue.ticket.name %></h2>
+<h2><%= @venue.name %></h2>
+<% @venue.tickets.each do |v| %>
+    <h3><li><%= v.name %></li></h3>
+<% end %>
 <%= form_for(@venue) do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>
 
-    <%= f.submit "Submit Venue" %> 
+    <%= f.submit "Edit Venue" %> 
 <% end %>
 
-<p><h4><%= link_to "Delete Venue", venue_path, method: "delete" %></h4></p>
+<p><h3><%= link_to "Add a Ticket to this Venue", new_venue_ticket_path(@venue) %></h3></p> 
+<p><h3><%= link_to "Delete Venue", venue_path, method: "delete" %></h3></p>

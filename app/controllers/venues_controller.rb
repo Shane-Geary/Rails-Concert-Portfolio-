@@ -2,21 +2,11 @@ class VenuesController < ApplicationController
     before_action :not_logged_in
 
     def index 
-        if params[:ticket_id] && @ticket = Ticket.find_by_id(params[:ticket_id])
-            @venues = @ticket.venues 
-        else
-            @error = "That Ticket doesn't exist" if params[:ticket_id]
-        @venues = Venue.all 
-        end 
+        @venues = current_user.venues.most_tickets 
     end
 
     def new 
-        if params[:ticket_id] && @ticket = Ticket.find_by_id(params[:ticket_id]) 
-            @venue = @ticket.venues.build 
-        else
-            @error = "Choose a Ticket to add the Venue to" if params[:ticket_id]
-        @venue = Venue.new 
-        end 
+        @venue = Venue.new
     end
 
     def create 
@@ -48,7 +38,7 @@ class VenuesController < ApplicationController
     def destroy 
         Venue.delete(params[:id]) 
         redirect_to venues_path 
-    end
+    end 
 
     def venue_params 
         params.require(:venue).permit(:name, :ticket_id) 

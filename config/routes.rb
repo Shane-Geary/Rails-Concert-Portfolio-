@@ -9,10 +9,12 @@ Rails.application.routes.draw do
 
   delete '/logout' => 'sessions#destroy' 
 
+  get '/auth/google_oauth2/callback' => 'sessions#google'
+
   resources :users
-  resources :tickets do 
-    resources :venues, shallow: true 
+  resources :venues do 
+    resources :tickets, shallow: true 
   end
-  resources :venues
+  resources :tickets
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

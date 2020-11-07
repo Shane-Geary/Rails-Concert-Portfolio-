@@ -1,5 +1,4 @@
 <h1>Edit this Ticket</h1>
 <%= render partial: 'form', locals: {ticket: @ticket} %>
 
-<p><h4><%= link_to "Add a Venue to this Ticket", new_ticket_venue_path(@ticket) %></h4></p>
-<p><h4><%= link_to "Delete Ticket", ticket_path, method: "delete" %></h4></p>
+<p><h3><%= link_to "Delete Ticket", ticket_path, method: "delete" %></h3></p> 

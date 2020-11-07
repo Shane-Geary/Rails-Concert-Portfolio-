@@ -1,8 +1,8 @@
 <h1>See all your tickets</h1>
 <% @tickets.each do |t| %>
-    <p>-<%= link_to t.name, edit_ticket_path(t), method: "get" %> -
+    <p><li><%= link_to t.name, edit_ticket_path(t), method: "get" %> -
     <%= t.date %> -
-    <%= t.artist %> | Venue: <%= @tickets.venue.name %></p> 
+    <%= t.artist %></li></p>
 <% end %>
 
-
+<%# <%= @tickets.venue.name %> 
