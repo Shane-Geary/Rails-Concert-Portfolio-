@@ -1,4 +1,9 @@
-<h1>Add a Venue</h1>
+<h2>Add a Venue</h2>
+
+<h3>Here you can create a new Venue so you can add the Tickets to it that have taken place there!</h3>
+<br>
+
+<%= render partial: 'layouts/errors', locals: {object: @venue} %>
 
 <%= form_for(@venue) do |f| %> 
 

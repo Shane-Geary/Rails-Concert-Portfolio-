@@ -1,4 +1,6 @@
 <h1>Edit this Ticket</h1>
+
+<%= render partial: 'layouts/errors', locals: {object: @ticket} %> 
 <%= render partial: 'form', locals: {ticket: @ticket} %>
 
 <p><h3><%= link_to "Delete Ticket", ticket_path, method: "delete" %></h3></p> 

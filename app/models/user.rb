@@ -5,4 +5,8 @@ class User < ApplicationRecord
     has_many :venues 
     has_many :ticket_venues, through: :tickets, 
     source: :venue 
+
+    validates :username, presence: true 
+
+    validates :username, uniqueness: true 
 end

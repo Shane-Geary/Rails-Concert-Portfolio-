@@ -1,1 +1,9 @@
+<% if @ticket.venue %>
+<h2><%= @ticket.venue.name %></h2>
+<% else %>
+<h2>New Ticket</h2>
+<% end %>
+
+
+<%= render partial: 'layouts/errors', locals: {object: @ticket} %> 
 <%= render partial: 'form', locals: {ticket: @ticket} %>

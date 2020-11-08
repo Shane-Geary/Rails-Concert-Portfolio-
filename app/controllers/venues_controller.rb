@@ -2,7 +2,7 @@ class VenuesController < ApplicationController
     before_action :not_logged_in
 
     def index 
-        @venues = current_user.venues.most_tickets 
+        @venues = current_user.venues.most_tickets
     end
 
     def new 
@@ -36,8 +36,9 @@ class VenuesController < ApplicationController
     end
 
     def destroy 
-        Venue.delete(params[:id]) 
-        redirect_to venues_path 
+        @venue = Venue.find(params[:id])
+        @venue.destroy 
+        redirect_to venues_path  
     end 
 
     def venue_params 

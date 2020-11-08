@@ -1,30 +1,12 @@
-<% if @ticket.venue %>
-<h1><%= @ticket.venue.name %></h1>
-<% else %>
-<h1>New Ticket</h1>
-<% end %>
-
-<% if @ticket.errors.any? %>
-    <div id="error_explanation">
-        <h2><%= pluralize(@ticket.errors.count, "error") %> Prohibited this ticket from being saved:</h2>
-
-        <ul>
-        <%= @ticket.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-        <% end %>
-        </ul>
-    </div>
-<% end %>
-        
-
 <%= form_for([@venue, @ticket]) do |f| %> 
     <% if !@ticket.venue %> 
     <%= f.label :venue %>
-    <%= f.collection_select :venue_id, current_user.venues.all, :id, :name %>
+    <%= f.collection_select :venue_id, current_user.venues.all, :id, :name %> Or <%= link_to "Add a new Venue", new_venue_path %>
     <% else %>
         <%= f.hidden_field :venue_id %>
     <% end %>
-
+    <br>
+    <br>
     <%= f.label :name %> 
     <%= f.text_field :name %>
     <br>

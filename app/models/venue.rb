@@ -4,7 +4,9 @@ class Venue < ApplicationRecord
   has_many :users, through: :tickets 
 
   scope :alpha, -> { order(:name) }
-  scope :most_tickets, -> { joins(:tickets).group('venues.id').order('count(venues.id) desc') } 
+  scope :most_tickets, -> { left_joins(:tickets).group('venues.id').order('count(tickets.venue_id) desc') } 
 
-  validates :name, presence: :true 
+  validates :name, presence: true 
+  
+  validates :name, uniqueness: {scope: :user_id, message: "already exists"} 
 end

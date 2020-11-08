@@ -1,8 +1,7 @@
-<h1>See all your tickets</h1>
+<h2>See all your tickets</h2>
 <% @tickets.each do |t| %>
     <p><li><%= link_to t.name, edit_ticket_path(t), method: "get" %> -
     <%= t.date %> -
-    <%= t.artist %></li></p>
+    <%= t.artist %> | Took place at <%= link_to t.venue.name, edit_venue_path(t), method: "get" %></li></p>
 <% end %>
 
-<%# <%= @tickets.venue.name %> 

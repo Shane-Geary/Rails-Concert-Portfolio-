@@ -1,7 +1,10 @@
 <h2><%= @venue.name %></h2>
 <% @venue.tickets.each do |v| %>
-    <h3><li><%= v.name %></li></h3>
+    <h3><li><%= link_to v.name, edit_ticket_path(v), method: "get" %></li></h3>
 <% end %>
+
+<%= render partial: 'layouts/errors', locals: {object: @venue} %>
+
 <%= form_for(@venue) do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>

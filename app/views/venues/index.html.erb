@@ -1,6 +1,7 @@
-<h1>All Venues</h1>
+<h2>All Venues</h2>
 <% @venues.each do |v| %>
-    <p><li><%= link_to v.name, edit_venue_path(v), method: "get" %> - <%= v.tickets.size %></li></p>
+    <p><li><%= link_to v.name, edit_venue_path(v), method: "get" %> - <%= v.tickets.size %>
+    Tickets related to this Venue</li></p> 
 <% end %>
 
 <%# <%= @venues.ticket.name %> 

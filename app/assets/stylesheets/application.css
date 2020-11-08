@@ -16,9 +16,10 @@
  body
 	{
  		background: #303030;
- 		color: #ffffff;
+ 		color: #e2752c;
 		font-family: 'Open Sans', sans-serif;
 		font-weight: 300;
+		margin-bottom: 120px;
 		overflow-x: hidden; /* prevent horizontal scrollbar from appearing */
 	}
 	
@@ -615,14 +616,40 @@ header .social-icon li a
 		}
 
 }
+/* width */
+::-webkit-scrollbar {
+	width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+	background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+	background: #888;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+	background: #555;
+  }
 
+  ::-webkit-scrollbar-button {
+  background: #f1f1f1; 
+  }
+
+/* end 360 media quires */
 footer {
-    position: absolute;
+	position: fixed;
+	border-top:1px solid #ABABAB;
     left: 0;
     bottom: 0;
-    height: 100px;
-    width: 100%;
+    min-height: 100px;
+  	max-height: 110px;
+	width: 100%;
+	padding: 10px;
     background-color: #6d2828;
     color: #ffffff;
 }
-/* end 360 media quires */
