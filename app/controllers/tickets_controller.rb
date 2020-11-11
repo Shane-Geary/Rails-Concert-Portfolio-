@@ -4,8 +4,7 @@ class TicketsController < ApplicationController
     def index 
         if params[:venue_id] && @venue = Venue.find_by_id(params[:venue_id])
             @tickets = @venue.tickets 
-        else
-            # flash[:message] = "That Venue doesn't exist" if params[:venue_id] 
+        else 
             @tickets = current_user.tickets.all 
         end  
     end

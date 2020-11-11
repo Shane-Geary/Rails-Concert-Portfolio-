@@ -1,16 +1,15 @@
+<% if @venue.tickets %>
 <h2><%= @venue.name %></h2>
+<% else %>
+<h2>Edit Venue</h2>
+<% end %>
+
 <% @venue.tickets.each do |v| %>
     <h3><li><%= link_to v.name, edit_ticket_path(v), method: "get" %></li></h3>
 <% end %>
 
 <%= render partial: 'layouts/errors', locals: {object: @venue} %>
-
-<%= form_for(@venue) do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-
-    <%= f.submit "Edit Venue" %> 
-<% end %>
+<%= render partial: 'form', locals: {venue: @venue} %>
 
 <p><h3><%= link_to "Add a Ticket to this Venue", new_venue_ticket_path(@venue) %></h3></p> 
 <p><h3><%= link_to "Delete Venue", venue_path, method: "delete" %></h3></p>

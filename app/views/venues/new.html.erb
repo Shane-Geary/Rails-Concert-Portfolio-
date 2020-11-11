@@ -4,11 +4,4 @@
 <br>
 
 <%= render partial: 'layouts/errors', locals: {object: @venue} %>
-
-<%= form_for(@venue) do |f| %> 
-
-    <%= f.label :name %> 
-    <%= f.text_field :name %>
-
-    <%= f.submit "Submit" %>
-<% end %>
+<%= render partial: 'form', locals: {venue: @venue} %>
