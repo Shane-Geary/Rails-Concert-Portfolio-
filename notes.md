@@ -21,3 +21,7 @@ Tickets
     - name 
     - date 
     - artist 
+
+
+Search bar 
+    - get the data to pass around properly through the controller

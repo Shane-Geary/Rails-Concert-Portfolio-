@@ -1,4 +1,13 @@
 <h2>All Venues</h2>
+
+<%= form_tag("/venues", method: 'get') do %>
+<%= label_tag(:q, "Search Venues:") %>
+<%= text_field_tag(:q) %>
+<%= submit_tag("Search") %>
+<% end %>
+<br>
+<br>
+<br>
 <% @venues.each do |v| %>
     <p><li><%= link_to v.name, edit_venue_path(v), method: "get" %> - <%= v.tickets.size %>
     Tickets related to this Venue</li></p> 
