@@ -11,6 +11,6 @@ class Venue < ApplicationRecord
   validates :name, uniqueness: {scope: :user_id, message: "already exists"} 
 
   def self.search(params)
-    where("LOWER(name) = ?", params)
+    where("LOWER(name) = LIKE ?", "%#{params}%")
   end 
 end

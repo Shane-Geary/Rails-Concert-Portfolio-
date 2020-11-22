@@ -4,7 +4,7 @@ class VenuesController < ApplicationController
     def index 
         @venues = current_user.venues.most_tickets
     end
-    if params[:q]
+    if params[:q] && !params[:q].empty?
         @venues = @venues.search(params[:q].downcase)
     end
 
