@@ -2,10 +2,13 @@ class VenuesController < ApplicationController
     before_action :not_logged_in
 
     def index 
+        if params[:q] && !params[:q].empty?
+            @venues = Venue.search(params[:q].downcase)
+        else
         @venues = current_user.venues.most_tickets
+        # end 
     end
-    if params[:q] && !params[:q].empty?
-        @venues = @venues.search(params[:q].downcase)
+    
     end
 
     def new 
