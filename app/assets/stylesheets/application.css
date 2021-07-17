@@ -61,14 +61,12 @@ h2 span
     }
 /* end h2 */
 
-/* start about team service portfolio contact */
 #about, #team, #service,
 #portfolio, #contact
 	{
 		padding-top: 60px;
 		padding-bottom: 40px;
 	}
-/* end about team service portfolio contact */
 
 /* start preloader */
 .preloader

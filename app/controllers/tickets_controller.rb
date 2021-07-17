@@ -1,5 +1,5 @@
 class TicketsController < ApplicationController
-    before_action :not_logged_in#, only: :index
+    before_action :not_logged_in
 
     def index 
         if params[:venue_id] && @venue = Venue.find_by_id(params[:venue_id])

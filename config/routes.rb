@@ -11,12 +11,9 @@ Rails.application.routes.draw do
 
   get '/auth/google_oauth2/callback' => 'sessions#google' 
 
-  # get '/search' => 'venues#search', :as => 'search_venue'
-
   resources :users
   resources :venues do 
-    resources :tickets, shallow: true # index, new and show routes only 
+    resources :tickets, shallow: true y 
   end
   resources :tickets
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end 

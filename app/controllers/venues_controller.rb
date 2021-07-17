@@ -6,9 +6,7 @@ class VenuesController < ApplicationController
             @venues = Venue.search(params[:q].downcase)
         else
         @venues = current_user.venues.most_tickets
-        # end 
-    end
-    
+        end
     end
 
     def new 
